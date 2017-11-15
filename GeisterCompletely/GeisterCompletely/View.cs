@@ -17,6 +17,8 @@ namespace GeisterCompletely
 		private int font100;
 		private int redKoma;
 		private int blueKoma;
+		private int redKoma2;
+		private int blueKoma2;
 
 		public View(double windowSizeX, double windowSizeY)
 		{
@@ -29,6 +31,8 @@ namespace GeisterCompletely
 			font100 = DX.CreateFontToHandle("メイリオ", 100, 10);
 			redKoma = DX.LoadGraph("red.png");
 			blueKoma = DX.LoadGraph("blue.png");
+			redKoma2 = DX.LoadGraph(@"red2.png");
+			blueKoma2 = DX.LoadGraph(@"blue2.png");
 		}
 
 		public void UpdateViewInfo()
@@ -64,8 +68,8 @@ namespace GeisterCompletely
 					if (type == 0) { continue; }
 					if (type == 1) { DX.DrawRotaGraph(cx, cy, Scale, 0, redKoma, DX.FALSE); }
 					if (type == 2) { DX.DrawRotaGraph(cx, cy, Scale, 0, blueKoma, DX.FALSE); }
-					if (type == 3) { DX.DrawRotaGraph(cx, cy, Scale, 3.1415926, redKoma, DX.FALSE); }
-					if (type == 4) { DX.DrawRotaGraph(cx, cy, Scale, 3.1415926, blueKoma, DX.FALSE); }
+					if (type == 3) { DX.DrawRotaGraph(cx, cy, Scale, 3.1415926, redKoma2, DX.FALSE); }
+					if (type == 4) { DX.DrawRotaGraph(cx, cy, Scale, 3.1415926, blueKoma2, DX.FALSE); }
 				}
 			}
 

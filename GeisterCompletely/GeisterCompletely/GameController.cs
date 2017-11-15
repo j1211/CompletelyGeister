@@ -18,16 +18,19 @@ namespace GeisterCompletely
 			for (y = 0; y < 6; y++) for (x = 0; x < 6; x++) board[y].Add(0);
 
 			View view = new View(windowSizeX, windowSizeY);
-			SimpleSolver com0 = new SimpleSolver();
-			SimpleSolver com1 = new SimpleSolver();
+			LogfilePlayer com0 = new LogfilePlayer();
+			LogfilePlayer com1 = new LogfilePlayer();
 			int turnCount = 0;
 			int losePlayer = -1;
 			byte[] key = new byte[256];
 			byte[] bkey = new byte[256];
 
+			com0.Init();
+			com1.Init();
+
 			DX.GetHitKeyStateAll(bkey);
-			if (!PutRedKoma(0, board, com0.PutRedKoma())) { while (DX.ProcessMessage() == 0 && DX.CheckHitKey(DX.KEY_INPUT_ESCAPE) == 0) view.ShowLoser(0); return; }
-			if (!PutRedKoma(1, board, com1.PutRedKoma())) { while (DX.ProcessMessage() == 0 && DX.CheckHitKey(DX.KEY_INPUT_ESCAPE) == 0) view.ShowLoser(1); return; }
+			if (!PutRedKoma(0, board, com0.PutRedKoma(0))) { while (DX.ProcessMessage() == 0 && DX.CheckHitKey(DX.KEY_INPUT_ESCAPE) == 0) view.ShowLoser(0); return; }
+			if (!PutRedKoma(1, board, com1.PutRedKoma(1))) { while (DX.ProcessMessage() == 0 && DX.CheckHitKey(DX.KEY_INPUT_ESCAPE) == 0) view.ShowLoser(1); return; }
 
 			while (DX.ScreenFlip() == 0 && DX.ProcessMessage() == 0 && DX.ClearDrawScreen() == 0 && DX.CheckHitKey(DX.KEY_INPUT_ESCAPE) == 0)
 			{
@@ -41,15 +44,17 @@ namespace GeisterCompletely
 				//思考するか？
 				if (!(bkey[DX.KEY_INPUT_RETURN] == 0 && key[DX.KEY_INPUT_RETURN] == 1)) { continue; }
 
+				//時間切れ負け判定
+				if (turnCount >= com0.MaxTurnNum()) { losePlayer = turnCount % 2; continue; }
+
 				//思考 (手を決める)
 				List <List<int>> cBoard = ToClientBoard(board, turnCount);
 				string move;
-				if (turnCount % 2 == 0) { move = com0.Think(cBoard); }
-				else { move = com1.Think(cBoard); }
+				if (turnCount % 2 == 0) { move = com0.Think(turnCount); }
+				else { move = com1.Think(turnCount); }
 
 				//整合手, 勝敗判定など
 				if (!IsRegalMove(cBoard, move)) { losePlayer = turnCount % 2; continue; }   //turnCount % 2 == 0 ⇔ 先手負け.
-				losePlayer = GetLosePlayer(cBoard, turnCount);
 
 				//駒を動かす
 				UpdateBoard(cBoard, move);
@@ -57,9 +62,11 @@ namespace GeisterCompletely
 				//ボードの変換
 				board = ToBoard(cBoard, turnCount);
 
-				//逃げ手判定
+				//勝敗判定
 				if (IsEscape(move)) { losePlayer = (turnCount + 1) % 2; continue; } //turnCount % 2 == 0 ⇔ 先手勝ち.
+				losePlayer = GetLosePlayer(cBoard, turnCount);
 
+				//手番更新
 				turnCount++;
 			}
 		}
@@ -210,6 +217,7 @@ namespace GeisterCompletely
 		}
 
 		//駒数による敗者を決める。まだ決まっていない場合は-1。先手が負けた場合0, 後手が負けた場合1を返す。
+		//手番プレイヤーが駒を動かした直後の盤面で考える。
 		private int GetLosePlayer(List<List<int>> cBoard, int turnCount)
 		{
 			List<List<int>> board = ToBoard(cBoard, turnCount);
@@ -221,12 +229,12 @@ namespace GeisterCompletely
 			{
 				for (x = 0; x < 6; x++)
 				{
-					cnt[cBoard[y][x]]++;
+					cnt[board[y][x]]++;
 				}
 			}
 
-			if (cnt[1] == 0 || cnt[4] == 0) { return 0; }
-			if (cnt[2] == 0 || cnt[3] == 0) { return 1; }
+			if (cnt[1] == 0 || cnt[4] == 0) { return 1; }
+			if (cnt[2] == 0 || cnt[3] == 0) { return 0; }
 			return -1;
 		}
 
