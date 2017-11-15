@@ -5,3 +5,11 @@ C:\Users\naott\onedrive\ドキュメント\visual studio 2015\Projects\GeisterCo
 C:\Users\naott\onedrive\ドキュメント\visual studio 2015\Projects\GeisterCompletely\GeisterCompletely\obj\Debug\GeisterCompletely.exe
 C:\Users\naott\onedrive\ドキュメント\visual studio 2015\Projects\GeisterCompletely\GeisterCompletely\obj\Debug\GeisterCompletely.pdb
 C:\Users\naott\onedrive\ドキュメント\visual studio 2015\Projects\GeisterCompletely\GeisterCompletely\bin\Debug\DxLibDotNet.dll
+C:\Users\hashimotolab\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\bin\Debug\GeisterCompletely.exe.config
+C:\Users\hashimotolab\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\bin\Debug\GeisterCompletely.exe
+C:\Users\hashimotolab\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\bin\Debug\GeisterCompletely.pdb
+C:\Users\hashimotolab\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\bin\Debug\DxLibDotNet.dll
+C:\Users\hashimotolab\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\obj\Debug\GeisterCompletely.csprojResolveAssemblyReference.cache
+C:\Users\hashimotolab\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\obj\Debug\GeisterCompletely.csproj.CoreCompileInputs.cache
+C:\Users\hashimotolab\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\obj\Debug\GeisterCompletely.exe
+C:\Users\hashimotolab\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\obj\Debug\GeisterCompletely.pdb
