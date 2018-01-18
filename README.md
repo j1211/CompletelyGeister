@@ -1,6 +1,9 @@
 # CompletelyGeister
 互いの駒が見えるガイスター（C#, DXライブラリ）
 
+ガイスターサーバ：https://github.com/miyo/geister_server.java/blob/master/
+の対戦ログを再生します。
+
 # Developing
 Windows10/Visual Studio 2015/DXLib/C#  
   
