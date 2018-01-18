@@ -1,7 +1,7 @@
 # CompletelyGeister
 互いの駒が見えるガイスター（C#, DXライブラリ）
 
-ガイスターサーバ：https://github.com/miyo/geister_server.java/blob/master/
+ガイスターサーバ：https://github.com/miyo/geister_server.java/
 の対戦ログを再生します。
 
 # Developing
