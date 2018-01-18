@@ -9,7 +9,7 @@ Non Defined.
 (Download and using for you is OK.)
 
 # How to use
-Drug & Drop logFile to exefile you want view.
+Drug & Drop logFile to exefile you want view.  
 exefile path = GeisterCompletely\GeisterCompletely\bin\Release
 
 # How to operate  
