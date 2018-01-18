@@ -19,10 +19,11 @@ namespace GeisterCompletely
 		int[] dy = { -1, 0, 1, 0 };
 		int[] dx = { 0, 1, 0, -1 };
 		string MoveDir = "URDL";
-		List<List<int>> posY;
+		List<List<int>> posY;	//駒名Aの駒は, 現在, posY[0]行posX[0]列目にある。
 		List<List<int>> posX;
 
-		public void Init()
+		//例外時は, falseを返す
+		public bool Init(string logFileName)
 		{
 			//初期配置
 			posY = new List<List<int>>();
@@ -38,29 +39,16 @@ namespace GeisterCompletely
 				}
 			}
 
-			//ファイル名列挙
-			DirectoryInfo directory = new DirectoryInfo(@"C:\Users\hashimotolab\Documents\GitHub\geister_server.java\log");
-			FileInfo[] files = directory.GetFiles("*.txt", SearchOption.TopDirectoryOnly);
-			List<string> fnames = new List<string>();
-			foreach (FileInfo file in files)
-			{
-				fnames.Add(file.FullName);
-			}
-			fnames.Sort((a, b) => -a.CompareTo(b));
-
-			List<string> FileNames = new List<string>();
-			for (int i = 0; i < fnames.Count; i++)
-			{
-				if (fnames[i].CompareTo(@"C:\Users\hashimotolab\Documents\GitHub\geister_server.java\log\log-2017-11-10-20-12-17-625.txt") < 0)
-				{
-					break;
-				}
-				FileNames.Add(fnames[i]);
-			}
-			FileNames.Reverse();
-
 			//ファイル読み込み
-			StreamReader reader = new StreamReader(FileNames[10 - 1]);
+			StreamReader reader = null;
+			try
+			{
+				reader = new StreamReader(logFileName);
+			} catch {
+				Console.WriteLine("ログファイルを開けません。");
+				Console.WriteLine("ログファイルをexeファイルにドラッグ＆ドロップして, 実行してください。");
+				return false;
+			}
 			string s;
 
 			s = reader.ReadLine();
@@ -81,6 +69,7 @@ namespace GeisterCompletely
 				MoveKomaDir += ConvertDirChar(s[15]);
 			}
 			reader.Close();
+			return true;
 		}
 
 		private char ConvertDirChar(char dir)

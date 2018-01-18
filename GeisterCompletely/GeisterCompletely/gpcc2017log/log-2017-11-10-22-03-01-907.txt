@@ -1,0 +1,17 @@
+player=1,SET:AHBC
+player=0,SET:FCBG
+player=0,MOV:A,N
+player=1,MOV:A,NORTH
+player=0,MOV:A,N
+player=1,MOV:D,NORTH
+player=0,MOV:D,N
+player=1,MOV:A,NORTH
+player=0,MOV:C,N
+player=1,MOV:A,EAST
+player=0,MOV:B,N
+player=1,MOV:A,EAST
+player=0,MOV:F,N
+player=1,MOV:A,NORTH
+player=0,MOV:G,N
+player=1,MOV:A,WEST
+winner=1

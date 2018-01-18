@@ -8,6 +8,10 @@ Windows10/Visual Studio 2015/DXLib/C#
 Non Defined.
 (Download and using for you is OK.)
 
+# How to use
+Drug & Drop logFile to exefile you want view.
+exefile path = GeisterCompletely\GeisterCompletely\bin\Release
+
 # How to operate  
 Enter ... To next step.  
 Escape ... To end this game.  

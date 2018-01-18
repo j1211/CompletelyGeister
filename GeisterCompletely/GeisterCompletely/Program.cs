@@ -13,6 +13,13 @@ namespace GeisterCompletely
 		{
 			const int windowSizeX = 800;
 			const int windowSizeY = 600;
+			string logFileName = "";
+
+			if (args.Count() >= 1)
+			{
+				logFileName = args[0];
+				Console.WriteLine("logFileName = " + args[0]);
+			}
 
 			DX.ChangeWindowMode(DX.TRUE);
 			DX.SetBackgroundColor(255, 255, 255);
@@ -21,7 +28,7 @@ namespace GeisterCompletely
 			DX.SetDrawScreen(DX.DX_SCREEN_BACK);
 
 			GameController controller = new GameController();
-			controller.Start(windowSizeX, windowSizeY);
+			controller.Start(windowSizeX, windowSizeY, logFileName);
 
 			DX.DxLib_End();
 		}

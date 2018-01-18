@@ -13,3 +13,10 @@ C:\Users\hashimotolab\Documents\GitHub\CompletelyGeister\GeisterCompletely\Geist
 C:\Users\hashimotolab\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\obj\Debug\GeisterCompletely.csproj.CoreCompileInputs.cache
 C:\Users\hashimotolab\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\obj\Debug\GeisterCompletely.exe
 C:\Users\hashimotolab\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\obj\Debug\GeisterCompletely.pdb
+C:\Users\naotti\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\bin\Debug\GeisterCompletely.exe.config
+C:\Users\naotti\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\obj\Debug\GeisterCompletely.exe
+C:\Users\naotti\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\obj\Debug\GeisterCompletely.pdb
+C:\Users\naotti\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\bin\Debug\GeisterCompletely.exe
+C:\Users\naotti\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\bin\Debug\GeisterCompletely.pdb
+C:\Users\naotti\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\bin\Debug\DxLibDotNet.dll
+C:\Users\naotti\Documents\GitHub\CompletelyGeister\GeisterCompletely\GeisterCompletely\obj\Debug\GeisterCompletely.csprojResolveAssemblyReference.cache

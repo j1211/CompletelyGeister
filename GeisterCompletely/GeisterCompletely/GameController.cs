@@ -9,7 +9,7 @@ namespace GeisterCompletely
 {
 	class GameController
 	{
-		public void Start(int windowSizeX, int windowSizeY)
+		public void Start(int windowSizeX, int windowSizeY, string logFileName)
 		{
 			List<List<int>> board = new List<List<int>>();	//board[行][列]. 4,5行目側が先手プレイヤー. 0…空, 1,2…先手(赤・青), 3,4…後手(赤・青)
 			int y, x;
@@ -25,8 +25,8 @@ namespace GeisterCompletely
 			byte[] key = new byte[256];
 			byte[] bkey = new byte[256];
 
-			com0.Init();
-			com1.Init();
+			if (!com0.Init(logFileName)) return;
+			if (!com1.Init(logFileName)) return;
 
 			DX.GetHitKeyStateAll(bkey);
 			if (!PutRedKoma(0, board, com0.PutRedKoma(0))) { while (DX.ProcessMessage() == 0 && DX.CheckHitKey(DX.KEY_INPUT_ESCAPE) == 0) view.ShowLoser(0); return; }
